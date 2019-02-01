@@ -28,22 +28,18 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`venndo env [FILE]`](#venndo-env-file)
+* [`venndo env`](#venndo-env)
 * [`venndo hello [FILE]`](#venndo-hello-file)
 * [`venndo help [COMMAND]`](#venndo-help-command)
+* [`venndo new [FILE]`](#venndo-new-file)
 
-## `venndo env [FILE]`
+## `venndo env`
 
-describe the command here
+Create an env file from a few prompts
 
 ```
 USAGE
-  $ venndo env [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  $ venndo env
 ```
 
 _See code: [src/commands/env.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/env.ts)_
@@ -84,4 +80,20 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
+
+## `venndo new [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ venndo new [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/new.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/new.ts)_
 <!-- commandsstop -->
