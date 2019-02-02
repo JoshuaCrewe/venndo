@@ -10,7 +10,9 @@ export default class Env extends Command {
         const file = '.env'
         fs.access(file, fs.constants.F_OK, async err => {
             if (! err) {
+                // TODO: Offer to force with a flag ?
                 this.log('An .env file already exists in this location')
+
             } else {
                 let projectName = path.basename(process.cwd())
                 let responses: any = await inquirer.prompt([
@@ -84,7 +86,7 @@ DB_PREFIX=${dbPrefix}
 WP_HOME=http://${homeURL}
 WP_SITEURL=\${WP_HOME}/wp`
 
-                fs.writeFile('./.env', file, async err => {
+                fs.writeFile('./.env', file, async (err: any) => {
                     if (err) {
                         return this.log(err)
                     }
