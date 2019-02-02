@@ -1,5 +1,6 @@
 import {Command} from '@oclif/command'
 import * as fs from 'fs-extra'
+import * as inquirer from 'inquirer'
 import * as path from 'path'
 
 // import shell from '../lib/shell'
@@ -21,12 +22,37 @@ export default class New extends Command {
 
         } else {
             this.log('no project by that name')
+            let responses: any = await inquirer.prompt([
+                {
+                    name: 'newConfigEntry',
+                    message: 'Do you want to add this project?',
+                    type: 'confirm'
+                }
+            ])
+            let createConfigEntry = responses.newConfigEntry
 
-            // @TODO: Offer to make one with prompts!
-            // echo` {
-                    // "projects": [ ]
-                // }`
+            if (createConfigEntry) {
+                let responses: any = await inquirer.prompt([
+                    {
+                        name: 'repo',
+                        message: 'What is the repo clone url',
+                        type: 'input'
+                    }
+                ])
+                let repo: string = responses.repo
+                if (repo) {
+                    this.log(`Adding ${args.project} with repo ${repo}`)
+                    // TODO: Load in config, add data and write to file
+                    // echo`{
+                    //      "projects": [ ]
+                    // }`
+                } else {
+                    this.log(`Cannot add ${args.project} without a repo`)
+                }
 
+            } else {
+                this.log('do not add anything')
+            }
         }
     }
 }
