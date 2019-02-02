@@ -3,22 +3,24 @@ import * as fs from 'fs-extra'
 import * as inquirer from 'inquirer'
 import * as path from 'path'
 
-// import shell from '../lib/shell'
+import cloneProject from '../../lib/clone'
 
 export default class New extends Command {
     static description = 'Scaffold a project from a git repo'
 
-    static args = [{
-        name: 'project'
-    }]
+    static args = [
+        {name: 'clone'},
+        {name: 'project'}
+    ]
 
     async run() {
         const {args} = this.parse(New)
         const userConfig = await fs.readJSON(path.join(this.config.configDir, 'config.json'))
-        if (userConfig.projects[0][args.project]) {
-            this.log(userConfig.projects[0][args.project])
+        if (userConfig.projects[0][args.clone]) {
+            this.log(userConfig.projects[0][args.clone])
 
             // @TODO: Set up the prject using this name and URL
+            cloneProject(userConfig.projects[0][args.clone], args.project)
 
         } else {
             this.log('no project by that name')
