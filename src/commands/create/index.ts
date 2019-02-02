@@ -1,8 +1,10 @@
 import {Command} from '@oclif/command'
+import * as log from 'fancy-log'
 import * as fs from 'fs-extra'
 import * as inquirer from 'inquirer'
 import * as path from 'path'
 
+import checkProject from '../../lib/checkProject'
 import cloneProject from '../../lib/clone'
 
 export default class New extends Command {
@@ -17,13 +19,13 @@ export default class New extends Command {
         const {args} = this.parse(New)
         const userConfig = await fs.readJSON(path.join(this.config.configDir, 'config.json'))
         if (userConfig.projects[0][args.clone]) {
-            this.log(userConfig.projects[0][args.clone])
-
-            // @TODO: Set up the prject using this name and URL
-            cloneProject(userConfig.projects[0][args.clone], args.project)
+            // If there is no project name then this wont work properly
+            if (checkProject(args.project)) {
+                cloneProject(userConfig.projects[0][args.clone], args.project)
+            }
 
         } else {
-            this.log('no project by that name')
+            log('no project by that name')
             let responses: any = await inquirer.prompt([
                 {
                     name: 'newConfigEntry',
@@ -43,17 +45,17 @@ export default class New extends Command {
                 ])
                 let repo: string = responses.repo
                 if (repo) {
-                    this.log(`Adding ${args.project} with repo ${repo}`)
+                    log(`Adding ${args.project} with repo ${repo}`)
                     // TODO: Load in config, add data and write to file
                     // echo`{
                     //      "projects": [ ]
                     // }`
                 } else {
-                    this.log(`Cannot add ${args.project} without a repo`)
+                    log(`Cannot add ${args.project} without a repo`)
                 }
 
             } else {
-                this.log('do not add anything')
+                log('do not add anything')
             }
         }
     }
