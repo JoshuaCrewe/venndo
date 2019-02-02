@@ -4,6 +4,7 @@
 [ ] - If not arguments sent to create then print help
 [ ] - add help flag to all commands
 [ ] - Set specific help for subcommands?
+[ ] - Help for create should specify two arguments
 [X] - Add option for project scaffold
     [X] - Add check repo command
     [X] - Fix running shell commands to scaffold
