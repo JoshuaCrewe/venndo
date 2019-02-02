@@ -1,5 +1,5 @@
 import {Command} from '@oclif/command'
-import fs = require('fs')
+import * as fs from 'fs'
 import * as inquirer from 'inquirer'
 import path = require('path')
 
@@ -15,7 +15,7 @@ export default class Env extends Command {
 
             } else {
                 let projectName = path.basename(process.cwd())
-                let responses: any = await inquirer.prompt([
+                let questions = [
                     {
                         name: 'host',
                         message: 'Hostname',
@@ -38,7 +38,7 @@ export default class Env extends Command {
                         name: 'dbPassword',
                         message: 'Database Password',
                         type: 'password',
-                        mask: true
+                        mask: '*'
                     },
                     {
                         name: 'dbPrefix',
@@ -64,7 +64,11 @@ export default class Env extends Command {
                         type: 'list',
                         choices: [{name: 'development'}, {name: 'staging'}, {name: 'production'}],
                     },
-                ])
+
+                ]
+
+                let responses: any = await inquirer.prompt(questions)
+
                 let host: string = responses.host
                 let dbName: string = responses.dbName
                 let dbUser: string = responses.dbUser

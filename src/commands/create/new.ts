@@ -1,7 +1,7 @@
 import {Command} from '@oclif/command'
 
 export default class CreateNew extends Command {
-    static description = 'Set a new project relationship for scaffolding'
+    static description = 'WIP: Set a new project relationship for scaffolding'
 
     static args = [
         {name: 'name'},
