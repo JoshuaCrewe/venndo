@@ -28,10 +28,38 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`venndo create [PROJECT]`](#venndo-create-project)
+* [`venndo create:new [FILE]`](#venndo-createnew-file)
 * [`venndo env`](#venndo-env)
 * [`venndo hello [FILE]`](#venndo-hello-file)
 * [`venndo help [COMMAND]`](#venndo-help-command)
-* [`venndo new [FILE]`](#venndo-new-file)
+
+## `venndo create [PROJECT]`
+
+Scaffold a project from a git repo
+
+```
+USAGE
+  $ venndo create [PROJECT]
+```
+
+_See code: [src/commands/create/index.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/create/index.ts)_
+
+## `venndo create:new [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ venndo create:new [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/create/new.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/create/new.ts)_
 
 ## `venndo env`
 
@@ -80,20 +108,4 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
-
-## `venndo new [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ venndo new [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-```
-
-_See code: [src/commands/new.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/new.ts)_
 <!-- commandsstop -->
