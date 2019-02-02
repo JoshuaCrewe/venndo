@@ -28,22 +28,46 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`venndo env [FILE]`](#venndo-env-file)
+* [`venndo create [PROJECT]`](#venndo-create-project)
+* [`venndo create:new [FILE]`](#venndo-createnew-file)
+* [`venndo env`](#venndo-env)
 * [`venndo hello [FILE]`](#venndo-hello-file)
 * [`venndo help [COMMAND]`](#venndo-help-command)
 
-## `venndo env [FILE]`
+## `venndo create [PROJECT]`
+
+Scaffold a project from a git repo
+
+```
+USAGE
+  $ venndo create [PROJECT]
+```
+
+_See code: [src/commands/create/index.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/create/index.ts)_
+
+## `venndo create:new [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ venndo env [FILE]
+  $ venndo create:new [FILE]
 
 OPTIONS
   -f, --force
   -h, --help       show CLI help
   -n, --name=name  name to print
+```
+
+_See code: [src/commands/create/new.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/create/new.ts)_
+
+## `venndo env`
+
+Create an env file from a few prompts
+
+```
+USAGE
+  $ venndo env
 ```
 
 _See code: [src/commands/env.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/env.ts)_
