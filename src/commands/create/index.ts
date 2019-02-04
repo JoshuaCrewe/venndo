@@ -1,9 +1,7 @@
 import {Command, flags} from '@oclif/command'
 import * as Conf from 'conf'
 import * as log from 'fancy-log'
-import * as fs from 'fs-extra'
 import * as inquirer from 'inquirer'
-import * as path from 'path'
 
 import checkProject from '../../lib/checkProject'
 import cloneProject from '../../lib/clone'

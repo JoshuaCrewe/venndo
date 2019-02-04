@@ -5,6 +5,8 @@ import * as log from 'fancy-log'
 import * as git from 'gift'
 import * as Listr from 'listr'
 
+import shell from './shell'
+
 export default function cloneProject(repo: string, projectName: string) {
     // TODO: Make some checks on the name of the project?
 
@@ -31,7 +33,8 @@ export default function cloneProject(repo: string, projectName: string) {
         const tasks = new Listr([
             {
                 title: 'Cleaning Up',
-                task: () => execa('rm', ['-rf', '.git'])
+                // task: () => execa('rm', ['-rf', '.git'])
+                task: () => shell('rm -rf .git')
             },
             {
                 title: 'Setting up Git',
