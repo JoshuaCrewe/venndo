@@ -19,7 +19,7 @@ $ npm install -g venndo
 $ venndo COMMAND
 running command...
 $ venndo (-v|--version|version)
-venndo/0.0.0 linux-x64 node-v8.12.0
+venndo/0.1.0 linux-x64 node-v8.12.0
 $ venndo --help [COMMAND]
 USAGE
   $ venndo COMMAND
@@ -28,30 +28,19 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`venndo create [PROJECT]`](#venndo-create-project)
-* [`venndo create:new [FILE]`](#venndo-createnew-file)
+* [`venndo add-git-ftp [FILE]`](#venndo-add-git-ftp-file)
+* [`venndo create [CLONE] [PROJECT]`](#venndo-create-clone-project)
+* [`venndo create:new [NAME] [REPO]`](#venndo-createnew-name-repo)
 * [`venndo env`](#venndo-env)
-* [`venndo hello [FILE]`](#venndo-hello-file)
 * [`venndo help [COMMAND]`](#venndo-help-command)
 
-## `venndo create [PROJECT]`
-
-Scaffold a project from a git repo
-
-```
-USAGE
-  $ venndo create [PROJECT]
-```
-
-_See code: [src/commands/create/index.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/create/index.ts)_
-
-## `venndo create:new [FILE]`
+## `venndo add-git-ftp [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ venndo create:new [FILE]
+  $ venndo add-git-ftp [FILE]
 
 OPTIONS
   -f, --force
@@ -59,7 +48,29 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src/commands/create/new.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/create/new.ts)_
+_See code: [src/commands/add-git-ftp.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.1.0/src/commands/add-git-ftp.ts)_
+
+## `venndo create [CLONE] [PROJECT]`
+
+Scaffold a project from a git repo
+
+```
+USAGE
+  $ venndo create [CLONE] [PROJECT]
+```
+
+_See code: [src/commands/create/index.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.1.0/src/commands/create/index.ts)_
+
+## `venndo create:new [NAME] [REPO]`
+
+WIP: Set a new project relationship for scaffolding
+
+```
+USAGE
+  $ venndo create:new [NAME] [REPO]
+```
+
+_See code: [src/commands/create/new.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.1.0/src/commands/create/new.ts)_
 
 ## `venndo env`
 
@@ -70,27 +81,7 @@ USAGE
   $ venndo env
 ```
 
-_See code: [src/commands/env.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/env.ts)_
-
-## `venndo hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ venndo hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ venndo hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.0.0/src/commands/hello.ts)_
+_See code: [src/commands/env.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.1.0/src/commands/env.ts)_
 
 ## `venndo help [COMMAND]`
 
