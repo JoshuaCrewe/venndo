@@ -1,10 +1,10 @@
 import {Command, flags} from '@oclif/command'
 import * as Conf from 'conf'
+import * as del from 'del'
+import * as execa from 'execa'
 import * as log from 'fancy-log'
 import * as inquirer from 'inquirer'
-
-import checkProject from '../../lib/checkProject'
-import cloneProject from '../../lib/clone'
+import * as Listr from 'listr'
 
 export default class New extends Command {
     static description = 'Scaffold a project from a git repo'
@@ -39,16 +39,52 @@ export default class New extends Command {
             configName: 'config'
         })
 
-        // config.clear()
-
         configPath = 'projects'
         configPath = configPath + '.' + args.clone
 
         if (config.has(configPath)) {
-            // If there is no project name then this wont work properly
-            if (checkProject(args.project)) {
-                cloneProject(config.get(configPath), args.project)
-            }
+            const repo = config.get(configPath)
+            const projectName = args.project
+            const tasks = new Listr([
+                {
+                    title: 'download source code',
+                    task: () => execa('git', ['clone', `${repo}`, `${projectName}`])
+                },
+                {
+                    title: 'Stage environment',
+                    task: () => process.chdir(projectName)
+                },
+                {
+                    title: 'Clean Up',
+                    task: () => del(['.git/**'])
+                },
+                {
+                    title: 'Initialise Git',
+                    task: () => execa('git', ['init'])
+                },
+                {
+                    title: 'Install package dependencies with Yarn',
+                    task: (ctx, task) => execa('yarn')
+                        .catch(() => {
+                            ctx.yarn = false
+
+                            task.skip('Yarn not available, install it via `npm install -g yarn`')
+                        })
+                },
+                {
+                    title: 'Install package dependencies with npm',
+                    enabled: ctx => ctx.yarn === false,
+                    task: () => execa('npm', ['install'])
+                },
+                {
+                    title: 'Install php dependencies with composer',
+                    task: () => execa('composer', ['install'])
+                }
+            ])
+
+            tasks.run().catch(err => {
+                log.error(err)
+            })
 
         } else {
             log('no project by that name')
