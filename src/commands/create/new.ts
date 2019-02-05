@@ -1,21 +1,29 @@
-import {Command} from '@oclif/command'
+import {Command, flags} from '@oclif/command'
 import * as Conf from 'conf'
 
 export default class CreateNew extends Command {
-    static description = 'WIP: Set a new project relationship for scaffolding'
+    static description = 'Set a new project relationship for scaffolding'
 
     static args = [
         {
-            name: 'clone',               // name of arg to show in help and reference with args[name]
-            required: true,            // make the arg required with `required: true`
-            description: 'The name of the git project on which to base on', // help description
+            name: 'clone',
+            required: true,
+            description: 'A git repo to use as a base',
         },
         {
-            name: 'repo',               // name of arg to show in help and reference with args[name]
-            required: true,            // make the arg required with `required: true`
-            description: 'the git clone URL for the project', // help description
+            name: 'repo',
+            required: true,
+            description: 'The git clone URL for the project',
         },
     ]
+
+    static examples = [
+        '$ venndo create:new new-project git@bitbucket.org:organisation/project.git',
+    ]
+
+    static flags = {
+        help: flags.help({char: 'h'}),
+    }
 
     async run() {
         const {args} = this.parse(CreateNew)

@@ -32,7 +32,6 @@ USAGE
 * [`venndo create [CLONE] [PROJECT]`](#venndo-create-clone-project)
 * [`venndo create:new [NAME] [REPO]`](#venndo-createnew-name-repo)
 * [`venndo env`](#venndo-env)
-* [`venndo hello [FILE]`](#venndo-hello-file)
 * [`venndo help [COMMAND]`](#venndo-help-command)
 
 ## `venndo add-git-ftp [FILE]`
@@ -83,26 +82,6 @@ USAGE
 ```
 
 _See code: [src/commands/env.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.1.0/src/commands/env.ts)_
-
-## `venndo hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ venndo hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ venndo hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.1.0/src/commands/hello.ts)_
 
 ## `venndo help [COMMAND]`
 

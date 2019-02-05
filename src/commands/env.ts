@@ -1,10 +1,20 @@
-import {Command} from '@oclif/command'
+import {Command, flags} from '@oclif/command'
 import * as fs from 'fs'
 import * as inquirer from 'inquirer'
 import path = require('path')
 
 export default class Env extends Command {
-    static description = 'Create an env file from a few prompts'
+    static description = `Create an env file from a few prompts
+You will be given a series of prompts asking for configuration.
+Answer the questions and the answers will form an .env file.
+`
+    static examples = [
+        '$ venndo env'
+    ]
+
+    static flags = {
+        help: flags.help({char: 'h'}),
+    }
 
     async run() {
         const file = '.env'

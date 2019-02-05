@@ -3,7 +3,23 @@ import * as execa from 'execa'
 import * as inquirer from 'inquirer'
 
 export default class AddGitFtp extends Command {
-    static description = 'get project set up with git-ftp'
+    static description = `get project set up with git-ftp
+
+You will be given a series of prompts asking for configuration.
+
+You will need :
+* Port
+* Username
+* hostname
+* server password
+
+Answer the questions and the answers will add your ssh key to the server and
+set the relevant config options for git-ftp in the repo.
+`
+
+    static examples = [
+        '$ venndo add-git-ftp',
+    ]
 
     static flags = {
         help: flags.help({char: 'h'}),
