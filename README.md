@@ -15,11 +15,11 @@ A tool for doing mundane or repetitive tasks.
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g venndo
+$ npm install -g @venncreative/venndo
 $ venndo COMMAND
 running command...
 $ venndo (-v|--version|version)
-venndo/0.2.0 darwin-x64 node-v8.11.3
+@venncreative/venndo/0.2.1 darwin-x64 node-v8.11.3
 $ venndo --help [COMMAND]
 USAGE
   $ venndo COMMAND
@@ -61,7 +61,7 @@ EXAMPLE
   $ venndo add-git-ftp
 ```
 
-_See code: [src/commands/add-git-ftp.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.2.0/src/commands/add-git-ftp.ts)_
+_See code: [src/commands/add-git-ftp.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.2.1/src/commands/add-git-ftp.ts)_
 
 ## `venndo create CLONE PROJECT`
 
@@ -82,7 +82,7 @@ EXAMPLE
   $ venndo create baseProject projectName
 ```
 
-_See code: [src/commands/create/index.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.2.0/src/commands/create/index.ts)_
+_See code: [src/commands/create/index.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.2.1/src/commands/create/index.ts)_
 
 ## `venndo create:new CLONE REPO`
 
@@ -103,7 +103,7 @@ EXAMPLE
   $ venndo create:new new-project git@bitbucket.org:organisation/project.git
 ```
 
-_See code: [src/commands/create/new.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.2.0/src/commands/create/new.ts)_
+_See code: [src/commands/create/new.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.2.1/src/commands/create/new.ts)_
 
 ## `venndo env`
 
@@ -124,7 +124,7 @@ EXAMPLE
   $ venndo env
 ```
 
-_See code: [src/commands/env.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.2.0/src/commands/env.ts)_
+_See code: [src/commands/env.ts](https://github.com/JoshuaCrewe/venndo/blob/v0.2.1/src/commands/env.ts)_
 
 ## `venndo help [COMMAND]`
 
