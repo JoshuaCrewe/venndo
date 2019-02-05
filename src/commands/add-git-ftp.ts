@@ -34,14 +34,12 @@ export default class AddGitFtp extends Command {
 
         // @TODO: Add error handling
         // Check if all of these prompts have a valid response
-        await execa('ssh-copy-id', [`${user}@${host}`, `-p ${port}`]).then((result: any) => {
-            this.log(result)
-        })
+        await execa('ssh-copy-id', [`${user}@${host}`, `-p ${port}`]).stderr
 
-        // await execa(`git config git-ftp.url 'sftp://${host}:${port}/home/${user}/www'`).then((result: any) => {
-        //     this.log(result)
-        // })
-        // await execa(`git config git-ftp.user ${user}`)
-        // await execa('git config git-ftp.syncroot public/')
+        await execa('git', ['config', 'git-ftp.url', `'sftp://${user}@${host}:${port}/home/${user}/www'`]).stderr
+
+        await execa('git', ['config', 'git-ftp.user', `${user}`]).stderr
+
+        await execa('git', ['config', 'git-ftp.syncroot', 'public/']).stderr
     }
 }
