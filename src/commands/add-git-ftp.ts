@@ -52,7 +52,7 @@ set the relevant config options for git-ftp in the repo.
         // Check if all of these prompts have a valid response
         await execa('ssh-copy-id', [`${user}@${host}`, `-p ${port}`]).stderr
 
-        await execa('git', ['config', 'git-ftp.url', `'sftp://${user}@${host}:${port}/home/${user}/www'`]).stderr
+        await execa('git', ['config', 'git-ftp.url', `sftp://${host}:${port}/home/${user}/www`]).stderr
 
         await execa('git', ['config', 'git-ftp.user', `${user}`]).stderr
 
