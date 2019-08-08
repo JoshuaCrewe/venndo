@@ -1,5 +1,6 @@
 # Venndo Roadmap
 
+[ ] - If no .git-ftp-ignore and .git-ftp-include make them
 [X] - Port adding git ftp command from js version
 [X] - If not arguments sent to create then print help
 [X] - add help flag to all commands

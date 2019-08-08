@@ -28,7 +28,7 @@ Answer the questions and the answers will form an .env file.
                 let questions = [
                     {
                         name: 'host',
-                        message: 'Hostname',
+                        message: 'Database Hostname',
                         type: 'input',
                         default: '192.168.1.2'
                     },
