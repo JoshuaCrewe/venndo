@@ -63,17 +63,7 @@ export default class New extends Command {
                     task: () => execa('git', ['init'])
                 },
                 {
-                    title: 'Install package dependencies with Yarn',
-                    task: (ctx, task) => execa('yarn')
-                        .catch(() => {
-                            ctx.yarn = false
-
-                            task.skip('Yarn not available, install it via `npm install -g yarn`')
-                        })
-                },
-                {
                     title: 'Install package dependencies with npm',
-                    enabled: ctx => ctx.yarn === false,
                     task: () => execa('npm', ['install'])
                 },
                 {

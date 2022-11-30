@@ -60,7 +60,7 @@ Answer the questions and the answers will form an .env file.
                         name: 'homeURL',
                         message: 'Home URL',
                         type: 'input',
-                        default: 'example.local'
+                        default: projectName + '.venn'
                     },
                     {
                         name: 'webroot',
